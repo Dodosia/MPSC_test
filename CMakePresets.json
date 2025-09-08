@@ -1,0 +1,69 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 31
+  },
+  "configurePresets": [
+    {
+      "hidden": true,
+      "name": "default",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "installDir": "${sourceDir}/build/${presetName}/install",
+      "toolchainFile": "${sourceDir}/res/toolchain.cmake",
+      "architecture": { "value": "x64", "strategy": "external" },
+      "warnings": { "dev": false },
+      "cacheVariables": {
+        "CMAKE_CXX_SCAN_FOR_MODULES": false,
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true,
+        "CMAKE_VERBOSE_MAKEFILE": false
+      }
+    },
+    {
+      "name": "debug",
+      "displayName": "Debug",
+      "inherits": "default",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CONFIGURATION_TYPES": "Debug"
+      }
+    },
+    {
+      "name": "release",
+      "displayName": "Release",
+      "inherits": "default",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CONFIGURATION_TYPES": "Release"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug",
+      "displayName": "Debug",
+      "configurePreset": "debug"
+    },
+    {
+      "name": "release",
+      "displayName": "Release",
+      "configurePreset": "release"
+    }
+  ],
+  "workflowPresets": [
+    {
+      "name": "debug",
+      "steps": [
+        { "name": "debug", "type": "configure" },
+        { "name": "debug", "type": "build" }
+      ]
+    },
+    {
+      "name": "release",
+      "steps": [
+        { "name": "release", "type": "configure" },
+        { "name": "release", "type": "build" }
+      ]
+    }
+  ]
+}

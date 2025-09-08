@@ -1,0 +1,19 @@
+# clangd 19
+---
+CompileFlags:
+  Add: [ -xc++, -std=c++26 ]
+  CompilationDatabase: build
+Diagnostics:
+  ClangTidy:
+    FastCheckFilter: None
+  MissingIncludes: None
+  UnusedIncludes: Strict
+InlayHints:
+  Enabled: No
+---
+If:
+  PathMatch: src/main.hpp
+Diagnostics:
+  Suppress:
+    - unused-includes
+...

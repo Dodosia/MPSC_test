@@ -1,0 +1,79 @@
+# clang-tidy 19
+---
+Checks: "-*,\
+clang-analyzer-core-*,\
+-clang-analyzer-core.CallAndMessage,\
+-clang-analyzer-core.uninitialized.*,\
+clang-analyzer-cplusplus-*,\
+-clang-analyzer-cplusplus.NewDeleteLeaks,\
+-clang-analyzer-cplusplus.PureVirtualCall,\
+bugprone-*,\
+-bugprone-dynamic-static-initializers,\
+-bugprone-easily-swappable-parameters,\
+-bugprone-empty-catch,\
+-bugprone-exception-escape,\
+-bugprone-forward-declaration-namespace,\
+-bugprone-integer-division,\
+-bugprone-macro-parentheses,\
+-bugprone-sizeof-expression,\
+-bugprone-too-small-loop-variable,\
+-bugprone-undefined-memory-manipulation,\
+-bugprone-use-after-move,\
+fuchsia-multiple-inheritance,\
+fuchsia-virtual-inheritance,\
+llvm-prefer-static-over-anonymous-namespace,\
+misc-*,\
+-misc-no-recursion,\
+-misc-include-cleaner,\
+-misc-unused-parameters,\
+-misc-unused-using-decls,\
+-misc-use-anonymous-namespace,\
+-misc-use-internal-linkage,\
+-misc-throw-by-value-catch-by-reference,\
+performance-*,\
+-performance-avoid-endl,\
+-performance-unnecessary-value-param,\
+readability-*,\
+-readability-avoid-const-params-in-decls,\
+-readability-braces-around-statements,\
+-readability-container-size-empty,\
+-readability-convert-member-functions-to-static,\
+-readability-function-cognitive-complexity,\
+-readability-function-size,\
+-readability-identifier-length,\
+-readability-implicit-bool-conversion,\
+-readability-magic-numbers,\
+-readability-math-missing-parentheses,\
+-readability-named-parameter,\
+-readability-qualified-auto,\
+-readability-redundant-declaration,\
+-readability-static-accessed-through-instance,\
+-readability-uppercase-literal-suffix"
+CheckOptions:
+  - key: misc-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic
+    value: true
+  - key: readability-identifier-naming.StructCase
+    value: lower_case
+  - key: readability-identifier-naming.ClassCase
+    value: lower_case
+  - key: readability-identifier-naming.UnionCase
+    value: lower_case
+  - key: readability-identifier-naming.EnumCase
+    value: lower_case
+  - key: readability-identifier-naming.EnumConstantCase
+    value: lower_case
+  - key: readability-identifier-naming.FunctionCase
+    value: lower_case
+  - key: readability-identifier-naming.MemberCase
+    value: lower_case
+  - key: readability-identifier-naming.ParameterCase
+    value: lower_case
+  - key: readability-identifier-naming.VariableCase
+    value: lower_case
+  - key: readability-identifier-naming.TemplateParameterCase
+    value: CamelCase
+  - key: readability-identifier-naming.PrivateMemberSuffix
+    value: _
+FormatStyle: file
+HeaderFilterRegex: 'src/.*\.hpp$'
+...

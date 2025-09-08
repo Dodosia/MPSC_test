@@ -1,0 +1,18 @@
+{
+  // Style
+  "editor.tabSize": 8,
+  "editor.indentSize": 2,
+  "editor.detectIndentation": false,
+  "editor.unicodeHighlight.allowedLocales": { "ru": true },
+  "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 100,
+  "editor.rulers": [ 100 ],
+  "files.eol": "\n",
+
+  // Extension: clangd (llvm-vs-code-extensions.vscode-clangd)
+  "clangd.arguments": [ "--header-insertion=never" ],
+
+  // Extension: CMake Tools (ms-vscode.cmake-tools)
+  "cmake.copyCompileCommands": "${workspaceFolder}/build/compile_commands.json",
+  "cmake.useCMakePresets": "always"
+}

@@ -1,0 +1,172 @@
+# clang-format 19
+---
+Standard: Latest
+ColumnLimit: 100
+LineEnding: LF
+UseTab: Never
+
+TabWidth: 8
+IndentWidth: 2
+AccessModifierOffset: -2
+ContinuationIndentWidth: 2
+InsertNewlineAtEOF: true
+
+# Functions
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortLambdasOnASingleLine: Empty
+
+# Arguments
+AlignAfterOpenBracket: DontAlign
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+PackConstructorInitializers: CurrentLine
+BinPackParameters: true
+BinPackArguments: true
+
+# Alignment
+AlignArrayOfStructures: Left
+BitFieldColonSpacing: None
+PointerAlignment: Left
+
+# Case
+AllowShortCaseExpressionOnASingleLine: true
+AllowShortCaseLabelsOnASingleLine: true
+AlignConsecutiveShortCaseStatements:
+  Enabled: true
+  AcrossComments: true
+  AcrossEmptyLines: true
+  AlignCaseColons: false
+
+# Breaks
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCompoundRequirementOnASingleLine: true
+AllowShortIfStatementsOnASingleLine: Never
+AlwaysBreakBeforeMultilineStrings: true
+BreakAfterAttributes: Never
+BreakAfterReturnType: None
+BreakBeforeBinaryOperators: None
+BreakBeforeTernaryOperators: true
+BreakConstructorInitializers: AfterColon
+BreakInheritanceList: AfterColon
+BreakTemplateDeclarations: Yes
+
+# Braces
+BreakBeforeBraces: Custom
+BraceWrapping:
+  # Other AfterControlStatement values
+  # break AllowShortCompoundRequirementOnASingleLine.
+  AfterControlStatement: Never
+  BeforeCatch: true
+
+RemoveBracesLLVM: true
+
+# Qualifiers
+QualifierAlignment: Custom
+QualifierOrder: [ friend, static, constexpr, inline, const, type ]
+
+# Preprocessor
+IndentPPDirectives: None
+SkipMacroDefinitionBody: true
+
+# Empty Lines
+EmptyLineBeforeAccessModifier: LogicalBlock
+SeparateDefinitionBlocks: Leave
+MaxEmptyLinesToKeep: 2
+
+# Comments
+AlignTrailingComments:
+  Kind: Always
+  OverEmptyLines: 5
+
+ReflowComments: false
+SpacesBeforeTrailingComments: 2
+
+# Integers
+IntegerLiteralSeparator:
+  Binary: 8
+  BinaryMinDigits: 9
+  Decimal: 3
+  DecimalMinDigits: 4
+  Hex: 8
+  HexMinDigits: 9
+
+# Includes
+SortIncludes: CaseInsensitive
+IncludeBlocks: Preserve
+IncludeCategories:
+  # Relative
+  - Regex: '^"'
+    Priority: 0
+
+  # Special
+  - Regex: '^<(benchmark/benchmark|gtest/gtest)\.h>$'
+    Priority: 1
+
+  # Project
+  - Regex: '^<logger.hpp>$'
+    Priority: 2
+
+  # C++ Standard Library
+  - Regex: '^<[^\.\/]+>$'
+    Priority: 4
+
+  # C Standard Library (C++ Wrappers)
+  - Regex: '^<c(assert|ctype|errno|fenv|float|inttypes|limits|locale|math|setjmp|signal|stdarg|stddef|stdint|stdio|stdlib|string|time|uchar|wchar|wctype)>$'
+    Priority: 5
+
+  # C POSIX Library (Directories)
+  - Regex: '^<(arpa|net|netinet|sys)/.*\.h>$'
+    Priority: 6
+
+  # C POSIX Library
+  - Regex: '^<(aio|complex|cpio|devctl|dirent|dlfcn|endian|fcntl|fmtmsg|fnmatch|ftw|glob|grp|iconv|langinfo|libgen|libintl|monetary|mqueue|ndbm|netdb|nl_types|poll|pthread|pwd|regex|sched|search|semaphore|spawn|strings|stropts|syslog|tar|termios|trace|ulimit|unistd|utime|utmpx|wordexp)\.h>$'
+    Priority: 7
+
+  # C Standard Library
+  - Regex: '^<(assert|ctype|errno|fenv|float|inttypes|iso646|limits|locale|math|setjmp|signal|stdalign|stdarg|stdatomic|stdbit|stdbool|stdckdint|stddef|stdint|stdio|stdlib|stdmchar|stdnoreturn|string|tgmath|threads|time|uchar|wchar|wctype)\.h>$'
+    Priority: 8
+
+  # Windows Sockets
+  - Regex: '^<(winsock2|ws2tcpip)\.h>$'
+    Priority: 9
+
+  # Windows
+  - Regex: '^<windows\.h>$'
+    Priority: 10
+
+  # Windows NT
+  - Regex: '^<ntstatus\.h>$'
+    Priority: 11
+
+  # Windows Kernel
+  - Regex: '^<winternl\.h>$'
+    Priority: 12
+
+  # Windows Core
+  - Regex: '^<(lmcons|shlobj_core|tchar)\.h>$'
+    Priority: 13
+
+  # Windows System
+  - Regex: '^<(bcrypt|ncrypt|pdh|psapi|tlhelp32|wincrypt)\.h>$'
+    Priority: 14
+
+  # Windows Networking
+  - Regex: '^<iphlpapi\.h>$'
+    Priority: 15
+
+  # Windows OLE
+  - Regex: '^<(objbase|ole2)\.h>$'
+    Priority: 16
+
+  # Windows Common Controls
+  - Regex: '^<(commctrl|shellapi|shlobj|windowsx)\.h>$'
+    Priority: 17
+
+  # Windows Graphics
+  - Regex: '^<(gdiplus|dwrite|d2d1|d3d11)\.h>$'
+    Priority: 18
+
+  # Third Party
+  - Regex: '^<.*\..*>$'
+    Priority: 3
+...
