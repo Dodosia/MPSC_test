@@ -57,9 +57,10 @@ public:
     tail.notify_one();
   }
 
-  // Запускается в одном потребительском потоке.
-  void run(std::stop_token stop)
+    // Запускается в одном потребительском потоке.
+  void run(std::stop_token stop) noexcept 
   {
+    const std::stop_callback callback(stop, [this] { post(""); });
     for (;;)
     {
       // Выгружаем всё, что уже прислали производители.
