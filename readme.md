@@ -1,5 +1,7 @@
 # Multithreading
-Implement the `Task:` in [src/logger.hpp](src/logger.hpp).
+MPSC-логгер: несколько производителей → один потребитель. 
+Производители вызывают post(), потребитель крутит run(stop) и печатает сообщения. 
+Используются C++20 атомики с wait()/notify_one()
 
 ## Windows
 Required [Visual Studio Community 2022](https://visualstudio.microsoft.com/vs/community/) components.
