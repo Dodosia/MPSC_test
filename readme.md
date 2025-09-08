@@ -1,5 +1,5 @@
 # Multithreading
-MPSC-логгер: несколько производителей → один потребитель. 
+[MPSC-логгер](https://github.com/Dodosia/MPSC_test/blob/main/src/logger.hpp): несколько производителей → один потребитель. 
 Производители вызывают post(), потребитель крутит run(stop) и печатает сообщения. 
 Используются C++20 атомики с wait()/notify_one()
 
